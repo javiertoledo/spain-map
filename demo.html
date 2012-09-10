@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>Interactive Spain Map - Demo</title>
+  <script type="text/javascript" src="lib/raphael-min.js"></script>
+  <script type="text/javascript" src="lib/interactive-spain-map.js"></script>
+  <style type="text/css">
+    body {
+      background: #fff;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      color: #555;
+      font-size: 20px;
+    }
+    img {
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mapa interactivo de España</h1>
+  <a href="http://theagilemonkeys.com" title="Desarrollo de aplicaciones para web y dispositivos móviles">
+    <img src="http://theagilemonkeys.com/assets/highlights/logolight-a0469cb5d834613622ccfaa81237b42d.png" alt="The Agile Monkeys" width="210" height="48"/>
+  </a>
+  <div id="map"></div>
+  <script type="text/javascript">
+    new SpainMap('#map',800,500);
+  </script>
+</body>
