@@ -24,11 +24,15 @@ window.SpainMap = (config)->
         config.onClick province
 
   # Draw Map and add mouse listeners
-  R.setStart()
   load(province) for province in spainMap
-  set = R.setFinish()
 
-  globalBBox = set.getBBox(true)
-  R.setViewBox globalBBox.x, globalBBox.y, globalBBox.width, globalBBox.height, true
+  # Precalculated full map bounding box for performance purposes
+  mapBBox =
+    x: 150.522
+    y: 11.305
+    width: 416.74600000000004
+    height: 348.17
+
+  R.setViewBox mapBBox.x, mapBBox.y, mapBBox.width, mapBBox.height, true
 
   spainMap = null
