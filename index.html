@@ -1,8 +1,9 @@
 <html>
 <head>
   <title>Mapa interactivo de España SVG/RaphaëlJs - Demo</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <script type="text/javascript" src="lib/raphael-min.js"></script>
-  <script type="text/javascript" src="lib/interactive-spain-map.js"></script>
+  <script type="text/javascript" src="lib/spain-map.min.js"></script>
   <style type="text/css">
     body {
       background: #fff;
@@ -54,14 +55,13 @@
       strokeColor: "#cccccc",
       strokeWidth: 0.7,
       selectedColor: "#66bbdd",
-      //animate: false,
       animationDuration: 200,
       onClick: function(province) {
         alert("Has seleccionado " + province.name);
-      },
-      onMouseOver: function(province) {
-        //console.log(province.name + ': ' + province.number);
       }
+      //onMouseOver: function(province) {
+      //  console.log(province.name + ': ' + province.number);
+      //}
     });
   </script>
 </body>

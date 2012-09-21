@@ -5,14 +5,21 @@ fs = require 'fs'
 
 includes = "src/spain-map.coffee src/main.coffee"
 
-build = (callback) ->
-  coffee = exec "coffee -j interactive-spain-map.js -o lib -c #{includes}"
-  coffee.stderr.on 'data', (data) ->
+logErrors = (result, callback) ->
+  result.stderr.on 'data', (data) ->
     process.stderr.write data.toString()
-  coffee.stdout.on 'data', (data) ->
+  result.stdout.on 'data', (data) ->
     print data.toString()
-  coffee.on 'exit', (code) ->
+  result.on 'exit', (code) ->
     callback?() if code is 0
 
+build = (callback) ->
+  result = exec "coffee -j spain-map.js -o lib -c #{includes}"
+  logErrors result, callback
+
+minimize = (callback) ->
+  result = exec "uglifyjs --unsafe -o lib/spain-map.min.js lib/spain-map.js"
+  logErrors result, callback
+
 task 'build', 'Build lib/ from src/', ->
-  build()
+  build minimize

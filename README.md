@@ -7,15 +7,15 @@ Mapa vectorial de España interactivo creado a partir de un mapa SVG y la librer
 
 ## Uso
 
-El mapa está preparado para integrarlo en cualquier página web ya que está contenido en un único fichero JavaScript: interactive-spain-map.js
+El mapa está preparado para integrarlo en cualquier página web ya que está contenido en un único fichero JavaScript minificado: spain-map.min.js
 
 El mapa depende de la librería [RaphaëlJs](http://raphaeljs.com)
 
-1. Carga raphaeljs y el script interactive-spain-map.js
+1. Carga raphaeljs y el script spain-map.js
 
   ```
   <script type="text/javascript" src="some/path/raphael-min.js"></script>
-  <script type="text/javascript" src="some/path/interactive-spain-map.js"></script>
+  <script type="text/javascript" src="some/path/spain-map.min.js"></script>
   ```
 
 2. Crea una instancia de mapa. El mapa acepta los siguientes parámetros de configuración:
@@ -30,8 +30,7 @@ El mapa depende de la librería [RaphaëlJs](http://raphaeljs.com)
         strokeColor: "#bbbbbb", // color de las líneas de frontera
         strokeWidth: 0.7, // ancho de las líneas de frontera
         selectedColor: "#99eeee", // color de relleno de la provincia al pasar el ratón por encima
-        animate: true, // Verdadero para que el color de relleno cambie con una animación
-        animationDuration: 200, // Duración de la animación
+        animationDuration: 200, // Duración de la animación de salida
         onClick: function(province) {
           // Método que se ejecutará al hacer click sobre una provincia
         },
