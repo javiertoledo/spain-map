@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Interactive Spain Map - Demo</title>
+  <title>Mapa interactivo de España SVG/RaphaëlJs - Demo</title>
   <script type="text/javascript" src="lib/raphael-min.js"></script>
   <script type="text/javascript" src="lib/interactive-spain-map.js"></script>
   <style type="text/css">
@@ -8,23 +8,60 @@
       background: #fff;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       text-align: center;
+      color: #555;
     }
     h1 {
-      color: #555;
-      font-size: 20px;
+      font-size: 25px;
+      padding: 30px 0 10px;
     }
-    img {
+    p {
+      padding-bottom: 30px;
+    }
+    .agile img {
       border: none;
+      margin-top: 10px;
+    }
+    .agile {
+      padding: 50px;
+      font-size: 15px;
+    }
+    a {
+      color: #66bbdd;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Mapa interactivo de España</h1>
-  <a href="http://theagilemonkeys.com" title="Desarrollo de aplicaciones para web y dispositivos móviles">
-    <img src="http://theagilemonkeys.com/assets/highlights/logolight-a0469cb5d834613622ccfaa81237b42d.png" alt="The Agile Monkeys" width="210" height="48"/>
-  </a>
+  <h1>Mapa interactivo de España SVG/RaphaëlJs</h1>
+  <p>Mapa vectorial de España interactivo creado a partir de un mapa SVG y la librería <a href="http://raphaeljs.com" target="_blank">RaphaëlJs</a>.</p>
+  <a href="https://github.com/javiertoledo/spain-map"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
   <div id="map"></div>
+  <div class="agile">
+    Creado por <a href="http://twitter.com" title="Javier Toledo" target="_blank">Javier Toledo</a> en<br/>
+    <a href="http://theagilemonkeys.com" title="Desarrollo de aplicaciones para web y dispositivos móviles" target="_blank">
+      <img src="http://theagilemonkeys.com/assets/highlights/logolight-a0469cb5d834613622ccfaa81237b42d.png" alt="The Agile Monkeys" width="210" height="48"/>
+    </a>
+  </div>
   <script type="text/javascript">
-    new SpainMap('#map',800,500);
+    new SpainMap({
+      id: 'map',
+      width: 700,
+      height: 500,
+      fillColor: "#eeeeee",
+      strokeColor: "#cccccc",
+      strokeWidth: 0.7,
+      selectedColor: "#66bbdd",
+      //animate: false,
+      animationDuration: 200,
+      onClick: function(province) {
+        alert("Has seleccionado " + province.name);
+      },
+      onMouseOver: function(province) {
+        //console.log(province.name + ': ' + province.number);
+      }
+    });
   </script>
 </body>
