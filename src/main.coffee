@@ -19,6 +19,8 @@ window.SpainMap = (config)->
     path[0].onmouseout = ->
       path.animate {fill: config.fillColor}, config.animationDuration || 500
       R.safari()
+      if config.onMouseOut
+        config.onMouseOut province
     if config.onClick
       path[0].onclick = ->
         config.onClick province

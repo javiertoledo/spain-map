@@ -36,6 +36,9 @@ El mapa depende de la librería [RaphaëlJs](http://raphaeljs.com)
         },
         onMouseOver: function(province) {
           // Método que se ejecutará al pasar el ratón sobre una provincia
+        },
+        onMouseOut: function(province) {
+          // Método que se ejecutará al salir de una provincia
         }
       });
   </script>
