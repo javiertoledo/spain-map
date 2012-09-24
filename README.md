@@ -31,13 +31,13 @@ El mapa depende de la librería [RaphaëlJs](http://raphaeljs.com)
         strokeWidth: 0.7, // ancho de las líneas de frontera
         selectedColor: "#99eeee", // color de relleno de la provincia al pasar el ratón por encima
         animationDuration: 200, // Duración de la animación de salida
-        onClick: function(province) {
+        onClick: function(province, mouseevent) {
           // Método que se ejecutará al hacer click sobre una provincia
         },
-        onMouseOver: function(province) {
+        onMouseOver: function(province, mouseevent) {
           // Método que se ejecutará al pasar el ratón sobre una provincia
         },
-        onMouseOut: function(province) {
+        onMouseOut: function(province, mouseevent) {
           // Método que se ejecutará al salir de una provincia
         }
       });

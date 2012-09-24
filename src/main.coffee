@@ -11,19 +11,19 @@ window.SpainMap = (config)->
     path = R.path(province.path).attr(attr)
     delete province.path
     path[0].style.cursor = "pointer"
-    path[0].onmouseover = ->
+    path[0].onmouseover = (e)->
       path.attr {fill: config.selectedColor}
       R.safari()
       if config.onMouseOver
-        config.onMouseOver province
-    path[0].onmouseout = ->
+        config.onMouseOver province, e
+    path[0].onmouseout = (e)->
       path.animate {fill: config.fillColor}, config.animationDuration || 500
       R.safari()
       if config.onMouseOut
-        config.onMouseOut province
+        config.onMouseOut province, e
     if config.onClick
-      path[0].onclick = ->
-        config.onClick province
+      path[0].onclick = (e)->
+        config.onClick province, e
 
   # Draw Map and add mouse listeners
   load(province) for province in spainMap
